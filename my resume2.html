@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>“我的简历</title>
+	<link href="css/font_icon.css" rel="stylesheet" type="text/css">
+<style>
+	/*鍏叡鏍峰紡*/
+*{ margin:0; padding:0;}
+body{ font-family: "Microsoft Yahei"; font-size:0.875em; color:#666;}
+h1,h2,h3,h4,h5,h6{ font-weight:normal;}
+ul,ol{ list-style: none}
+em,i{ font-style:normal;}
+i{font-family: "iconfont";}
+a{ text-decoration:none; outline: none; color:#fff;}
+
+
+html,body{width: 100%; height: 100%;}
+
+/**PC绔痓egin**/
+.head .user img{width: 100px; border-radius: 50%;}
+.head .user h2{ font-size:30px; line-height: 40px; font-weight: bold; color:#fff; text-shadow: 3px 2px 8px rgba(0,0,0,0.1); letter-spacing: 3px; margin-bottom:10px;}
+.head .user p{text-shadow: 2px 2px 3px rgba(0,0,0,0.1); color:#fff; font-weight:100; line-height: 28px; text-shadow: 3px 2px 8px rgba(0,0,0,0.1); letter-spacing: 2px;}
+.head .user p i{ color:#ccc; margin-right: 5px; font-size:1.3em;}
+.head .user p a{display: inline-block; padding:2px 10px; border:1px solid #ccc; margin-top:15px; transition:all .3s ease-in-out; }
+.head .user p a:hover{ background:#fff; color:#000;}
+
+.container {background:#fff;}
+.container .main{ border-bottom:1px solid #ccc; padding-bottom:80px; margin-top:50px;}
+.container .main h3,
+.container .main .title{position: relative; font-size:32px; line-height: 50px; font-weight: bold; color:#666; letter-spacing: 3px; margin-bottom:20px;}
+.container .main h3:before,
+.container .main .title:before{ content: "";position: absolute; width: 9px; height: 9px; background:#86261a; display: inline-block; border-radius: 5px; top:24px; left:-24px;}
+.container .main p{ color:#666; line-height: 24px; margin:10px 0 10px;}
+.container .main .but i{ font-family: "iconfont";color:#fff; font-size:1.3em;}
+.container .main .but .email{ font-size:1.5em;}
+.container .main .but{display: inline-block; background:#86261a; padding:0 10px; height: 40px; line-height: 40px; color:#fff; border-radius:3px; margin-top:8px; transition:all .3s ease-in-out; font-weight: 300;}
+.container .main .but:hover{ background:#424242;}
+.container .main h4{font-size: 20px; font-weight: bold; color: #86261a;  line-height: 28px;}
+.container .main h4 span{ font-size:16px; margin-left: 10px; font-weight: 400 }
+.container .main ul{ margin-top:30px; overflow: hidden;} 
+.container .main ul li{ overflow: hidden;}
+.container .main .wlist li img{ float: left; display: block; width:340px; border-radius:8px; margin-right: 20px; }
+
+.container .main .anli li{position:relative; width:33%; background:#000; height:auto; float:left; }
+
+
+.container .main .qiwang li{ float:left; margin-right:5%;}
+.container .main .qiwang li i{font-family: "iconfont"; color:#666; margin:0 5px; font-size:1.3em;}
+
+
+.container .main .anli li a{ display:block; width:100%; height:100%; position:relative;}
+.container .main .anli li img{ width:100%; display:block; transition: .6s transform; transform: translateZ(0); }
+.container .main .anli li .text{width:0; height:0; background:#424242; z-index:99; position:absolute; top:50%;left:50%; border-radius: 50%; transition:all .4s ease-in; opacity:0;}
+.container .main .anli li .text p{ color:#fff; font-size:16px;}
+.container .main .anli li:hover .text{position:absolute; top:-50%;left:-50%; z-index: 99; width:200%;height: 200%; border-radius: 50%; background:#454545; opacity:0.9; color:#fff; text-align:center; }
+.container .main .anli li .text p{display:inline-block; text-align:center;  width:100%; font-size:15px; font-weight:100; line-height: 2px; margin-top:50%; opacity:1;}
+.container .main .anli li:hover img{ transform:scale(1.5, 1.5); transition: .4s ease-in-out transform;}
+
+/**宸﹁竟绠€浠�**/
+@media screen and (min-width:1020px) {
+
+.head{ width:40%; height: 100%; position:fixed; background:#a82d1d; z-index:99}
+.head .user{position: fixed;  text-align: right; top:15%; right:65%;}
+
+.head nav{ position: fixed; bottom:5%; right:65%;}
+.head nav ul li{ float:left; width:60px; text-align: center; height: 30px;} 
+.head nav ul li a{ color: #fff; display: block; width: 60px; height: 30px; transition:all .3s ease-in;}
+.head nav ul li a:hover{ color:#ccc; text-decoration:underline; font-size:14px;}
+
+.container{position:relative; background:#fff; width: 60%;  left:40%; padding:10px 70px 0; box-sizing: border-box }
+
+
+
+.container .main .wlist{ margin-top:30px; overflow: hidden;} 
+.container .main .wlist li{ overflow: hidden; margin-bottom:40px;}
+.container .main .wlist li img{ float: left; display: block; width:340px; border-radius:8px; margin-right: 20px; }
+.container .main .wlist li span{ color: #666; font-weight: 200; font-size: 14px; line-height: 30px;}
+.container .main .wlist li span em{ display: inline-block;}
+footer{display: none}
+}
+
+
+</style>
+</head>
+<body>
+	<div class="head">
+     <div class="user">
+        <img src="image/user.jpg">
+     	<h2>汤峰华</h2>
+     	<p><i>&#xe603;</i>Web前端工程师</p>
+     	<p>xxxxxxxxxxxxxxxxxxxxxx</p>
+     	
+     </div>
+     <nav>
+     	<ul>
+     		<li><a href="/" target="_blank">首页</a></li>
+     		<li><a href="#jishu" >技能</a></li>
+     		<li><a href="../case" target="_blank" >案例</a></li>
+     		<li><a href="#about" >联系</a></li>
+     		<li><a href="blog" target="_blank">博客</a></li>
+     	</ul>
+     </nav>
+</div>
+<div class="container">
+	<div class="main" id="about">
+		<div class="title">关于我</div>
+		<p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+		</p>
+		<a class="but" href="javascript:;"><i>QQ</i>：55187735</a>
+		<br>
+		<a class="but" href="javascript:;"><i>Num</i>：13625222132</a>
+		<br>
+		<a class="but" href="javascript:;" target="_blank"><i class="email">e-mail</i>：55187735@qq.com 点我发送</a>
+	</div>
+	
+
+	
+	<div class="main" id="jishu">
+		<h3>我的技能</h3>
+			<p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+			</p>
+			<!--SKILLS-->
+				<ul id="skills">
+					<li id="skill1" class="s100"><a></a><span>HTML + CSS</span></li>
+					<li id="skill2" class="s100"><a></a><span>PhotoShop</span></li>
+					<li id="skill3" class="s60"><a></a><span>Java script</span></li>
+					<li id="skill4" class="s50"><a></a><span>jQuery</span></li>
+					<li id="skill5" class="s80"><a></a><span>Angular</span></li>
+					<li id="skill6" class="s60"><a></a><span>Vue</span></li>
+
+				</ul><!--end skills-->
+
+				<!--SCRIPTS-->
+				<script src="js/jquery1.js"></script>
+				<script src="js/custom.js"></script>
+	</div>
+	
+	<div class="main">
+		<h3>期望工作</h3>
+			<ul class="qiwang">
+				<li><i>Job</i>: Web前端</li>
+				<li><i>Type</i>: 全职</li>
+				<li><i>City</i>: 上海</li>
+			</ul>
+	</div>
+
+</div>
+<footer>
+   <a href="/" class="logo"><img src="images/logo.png"></a>
+   <ul class="nav">
+     <li><a href="/">首页</a></li>
+     <li><a href="resume.html">简历</a></li>
+     <li><a href="#about">关于</a></li>
+     <li><a href="#work">案例</a></li>
+     <li><a href="#about">联系</a></li>
+     <li><a href="/blog" target="_blank">博客</a></li>
+     
+   </ul>
+   <ul class="social">
+     <li><a href="javascript:;">&#xe601;</a></li>
+     <li><a href="javascript:;" target="_blank">&#xe605;</a></li>
+     <li><a href="javascript:;" target="_blank">&#xe602;</a></li>
+     <li><a href="javascript:;" target="_blank">&#xe60b;</a></li>
+   </ul>
+   <div class="bottom">THANKS</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,969 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>湯’窝</title>
+<link rel="stylesheet" href="common.css"/>
+
+<style>
+*{ margin:0; padding:0; list-style:none; font-family: "微软雅黑","张海山锐线体简";}
+/*动画*/
+.preloader{ 
+	position:fixed;	 
+	width:100%; 
+	height:100%; 
+	background:#fff; 
+	z-index:9999;
+	transition: .4s;
+}
+.preloader .item{ 
+	width:100px; 
+	height:100px; 
+	position:absolute; 
+	top:50%; left:50%; 
+	margin-left:-50px; 
+	margin-top:-50px;
+}
+
+/*动画*/
+
+/*巨幅*/
+li {
+	list-style: none;
+}
+img {
+	border: none;
+}
+
+.box {
+	width:1366px;
+ 	height:662px;
+	margin: 0px auto;
+	position: relative;
+	overflow:hidden;
+	perspective:800px;
+	transition:1s;
+	z-index:2;
+}
+.imgBox{
+	 width: 1366px;
+	 position:absolute;
+	 top:0;
+	 left:0; 
+	 background:#000;
+}
+.imgBox img {
+	width: 1366px;
+	height: 662px;
+	float:left;
+}
+.imgBox img.active {
+	opacity:1;
+	z-index:1;
+}
+.num {
+	position: absolute;
+	bottom:50px;
+	left:50%;
+	margin-left:-60px;
+	z-index:99;
+}
+.num li {
+	float: left;
+	margin-right: 5px;
+	width: 50px;
+	height: 3px;
+	background: #7c7c7c;
+	cursor:pointer;
+	transition:1s;
+}
+.num li:hover{
+	background:white;
+	cursor:pointer;
+}
+.num .active {
+	background: white;
+}
+#button{
+	width:26px;
+	height:26px;
+	border:2px solid white;
+	box-shadow: 5px 5px 8px #888888;
+	border-radius:50%;
+	position:absolute;
+	left:48.5%;
+	bottom:80px;
+	font-size:18px;
+	color:white;
+	text-align: center;
+	transition:.4s;
+	cursor:pointer;
+}
+#button:hover{
+	transform:translateZ(4px);
+	opacity:0.6;
+}
+/*巨幅结束*/
+
+
+/*首页*/
+.wrap{width:1124px;
+    background:#fff;
+    padding:0px 50px;
+    margin-left:100px;
+    position:absolute;
+    top:0px;
+}
+#h1{
+	font-size:40px;
+	color:#fff;
+}
+/*时钟*/
+#canvas{
+	position:absolute;
+	left:-125px;
+	top:-85px;
+}
+/*时钟end*/
+
+/*音乐盒*/
+.musicBox{
+	width:264px;
+	height:200px;
+	background:black;
+	border-radius:6px;
+	margin-top: 10px;
+	position:absolute;
+	right:50px;
+	top:322px;
+}
+audio{
+	width:264px;
+	margin-top:2px;
+}
+
+.musicLi.active:before{
+	content: url(statics/play.gif);
+}
+.musicLi:nth-child(n){
+	line-height: 26px;
+	list-style:none;
+	width:264px;
+	height:26px;
+	background-color:#424242;
+	transition:.3s all ease-in-out;
+}
+.musicLi:nth-child(2n){
+	line-height: 26px;
+	list-style:none;
+	width:264px;
+	height:26px;
+	background-color:gray;
+	transition:.9s all ease-in-out;
+}
+.musicHead{
+	font:bolder 18px 微软雅黑;
+	color:#a82d1d;
+	text-align:center;
+	line-height:26px;
+	width:264px;
+	height:26px;
+	background-color:#000;
+	border-radius:6px 6px 0 0;
+}
+a{
+	font:10px 微软雅黑;
+	color:white;
+	text-decoration:none;
+	margin-left: 6px;
+}
+.musicLi:hover{
+	background:#a82d1d;
+	cursor:pointer;
+}
+.mode-switch{
+	font:bold 10px "微软雅黑";
+	color:#fff;
+	width:40px;
+	height:26px;
+	border:orange;
+	border-radius:6px;
+	background:#424242;
+	transition:0.3s all ease-out;
+}
+.bUl{
+	transform-style:preserve-3d; 
+	perspective: 800px;
+	margin-top: 10px;
+}
+#next{
+	font:bold 10px "微软雅黑";
+	color:#fff;
+	width:40px;
+	height:26px;
+	border:orange;
+	border-radius:6px;
+	background:#a82d1d;
+	transition:0.4s all ease-out;
+}
+.mode-switch:hover{
+	transform:scale(-1,1);
+}
+#next:hover{
+	transform:scale(-1,1);
+}
+/*音乐盒*/
+
+.head {
+    width: 100%;
+    height: 127px;
+    border-bottom: 1px solid #000;
+    position:relative;
+    background:black;
+    border-radius:6px; 
+    margin-bottom:10px;
+    background:#474747;
+
+}
+.head h1{
+    position:absolute;
+    left:50px;
+    top:44px;
+    font-weight: bolder;
+}
+.head li img{
+    width:150px;
+    height:150px;
+}
+.head .banner li{
+    float:left;
+    
+    line-height:24px;
+    padding:5px 18px 5px;
+    margin-right:14px;
+    cursor:pointer;
+    transition: .8s all cubic-bezier(0.66,-0.31, 0.7, 1.54);
+}
+.head .banner li a{
+	font:bolder 16px/1 '微软雅黑';
+    color:#fff;
+
+}
+.head .banner li:hover{
+    height:22px;
+    background:#a82d1d;
+    border-radius:2px;
+}
+.head .banner{
+    position:absolute;
+    bottom:28px;
+    left:350px;
+}
+.head .login_bar{
+    width:102px;
+    height:101px;
+    position:absolute;
+    right:0px;
+    bottom:12px;
+}
+.head .login_bar div{
+    background:#333;
+    border-radius:3px; 
+    width:50px;
+    height:30px;
+    float:left;
+    margin-bottom:1px;
+    margin-right:1px;
+    padding-top:20px;
+}
+.head .login_bar div .t{
+	position: relative;
+	transform-style: preserve-3d;
+	animation: .7s ani forwards;
+}
+
+.head .login_bar div .t{
+    display:block;
+    width:9px;
+    height:12px;
+    background:url("image/login.png") no-repeat 0 0;
+    margin:0px auto;
+}
+.head .login_bar div .f{
+    display:block;
+    width:6px;
+    height:12px;
+    background:url("image/login.png") no-repeat 0 -41px;
+    margin:0px auto;
+}
+.head .login_bar div .p{
+    display:block;
+    width:13px;
+    height:16px;
+    background:url("image/login.png") no-repeat 0 -12px;
+    margin:0px auto;
+}
+.head .login_bar div .in{
+    display:block;
+    width:13px;
+    height:13px;
+    background:url("image/login.png") no-repeat 0 -28px;
+    margin:0px auto;
+}
+.head span{margin-left:5px;}
+.middle .ad{
+	 width:860px;
+	 height:400px;
+	 background:#000;
+	 overflow:hidden;
+	 margin-right:30px;
+	}
+.middle .ad li{
+	 width:576px;
+	 height:324px;
+	 border:1px solid #d81d04;
+	 margin-left:80px;
+	 margin-top:38px;
+	}	
+.middle #ul1,.middle .right_ad{
+	 float:left;
+	}	
+.middle .right_ad{
+	 width:264px;
+	 margin-left:6px;
+	}	
+.middle .right_ad div{
+	 float:left;
+	 width:264px;
+	 height:192px;
+	 border-radius: 5px;
+	}
+.middle .right_ad #bBox{
+	 transform-style: preserve-3d;
+}	
+.middle .right_ad #bBox .container{
+			width: 37px;
+			height: 48px;
+			box-sizing: border-box;
+			float: left;
+		}
+.middle #ul1{
+	width:840px;
+	height:394px;
+	position:relative;
+	list-style:none;
+	overflow:hidden;
+	margin-right:14px;
+}
+.middle #ul1 li{
+	width:840px;
+	height:394px;
+	border-left:6px solid #5b0b01;
+	border-radius:16px 0 0 0;
+	position:absolute;
+	left:0;
+}
+.middle #ul1 li img{
+	width:100%;
+	height:100%;
+}
+.myresume{
+	position:relative;
+	width: 100%;
+	height: 50px;
+	background-color:#a82d1d;
+	border-radius:12px;
+	transition: 1s all cubic-bezier(0.66,-0.31, 0.7, 1.54);
+	margin-top:40px;
+}
+.myresume .resume{
+	width:170px;
+	height:50px;
+	position:absolute;
+	left:50%;
+	margin-left:-100px;
+	transition: .4s ease-out;
+	color:black;
+	font-size:18px;
+	font-weight: bolder;
+	text-align: center;
+	line-height: 50px;
+	background-color:white; 
+}
+.myresume .resume:hover{
+	background-color:#a82d1d;
+	border-radius:8px;
+	border:none;
+	color:white;
+}
+.myresume:hover{
+	background-color: #424242;
+}
+.runner{
+	width:170px;
+	height:100px;
+	margin-left:40%;
+	margin-top:100px;
+}
+.runner img{
+	width:170px;
+	height:100px;
+
+}
+
+/*技能*/
+
+
+.skill{
+	margin-top:100px;
+	margin-left:50px;
+}
+.skill li{float:left; width:200px;}
+.skill li .con{ margin:0 auto;  width:102px; height:102px; overflow:hidden; position:relative; border:2px solid #fff; border-radius:50%;-webkit-transition: all 0.3s ease-in; -moz-transition: all 0.5s ease-in;-ms-transition: all 0.5s ease-in;-o-transition: all 0.5s ease-in;transition: all 0.5s ease-in;}
+.skill li .con .box{position:relative; border:1px dashed #424242; width:100px; height:100px; border-radius:50px; -webkit-border-radius:50px; -moz-border-radius:50px; -ms-border-radius:50px; -o-border-radius:50px; margin:0 auto;-webkit-transition: all 0.3s ease-in; -moz-transition: all 0.3s ease-in;-ms-transition: all 0.3s ease-in;-o-transition: all 0.3s ease-in;transition: all 0.3s ease-in;}
+.skill li .con .box .yuan{ width:46px; height:46px; background:#424242;text-align:center; border-radius:50%; margin:0 auto; position:absolute; top:50%; left:50%; margin-left:-23px; margin-top:-23px;}
+.skill li .con:hover{border:2px solid #4d4d4d;}
+.skill li .con:hover .box{ background:#a82d1d;  width:82px; height:82px; margin:9px auto;}
+
+.skill li .con .yuan a{position:absolute; left:50%;top:50%; margin:-15px 0 0 -10px;  font-family:"iconfont";color:#fff;-webkit-transition: all 0.3s ease-in; -moz-transition: all 0.3s ease-in;-ms-transition: all 0.3s ease-in;-o-transition: all 0.3s ease-in;transition: all 0.3s ease-in;}
+.skill li .con .yuan .bb{ font-size:14px; font-family:"寰蒋闆呴粦"; position:absolute; left:50%;top:50%; margin:-9px 0 0 -15px; opacity:0;}
+.skill li .con .yuan .aa{position:absolute; left:50%;top:50%; margin:-12px 0 0 -10px; font-size:20px;}
+.skill li .con .yuan .aico{margin:-18px 0 0 -15px; font-size:30px;}
+.skill li .con .yuan a:hover{ text-decoration:none;}
+.skill li .con:hover .aa{opacity:0;}
+.skill li .con:hover .bb{ opacity:1; color:#ccc; font-family:"寰蒋闆呴粦";  font-weight:100; font-size:14px;}
+.skill li span{ color:#171717; text-align:center; display:block; font-size:14px; line-height:28px;}
+/*技能*/
+
+/*联系我*/
+.contact{ 
+	width:100%; 
+	position:relative; 
+	z-index:10; 
+	overflow:hidden; 
+	background:#fff;
+	padding-bottom:80px;} 
+
+.contact h2{letter-spacing:5px; font-size:48px; font-weight:500; color:#a82d1d; text-align:center; line-height:48px; height:48px; margin:0;  margin-top:120px;}
+
+.contact h3{ line-height:88px; font-size:24px; font-weight:100; color:#97372b; letter-spacing:5px; text-align:center;}
+.contact .line{ width:45px; background:#424242; height:2px; margin:0px auto 30px; display:block;}
+.contact .txt{ cursor:pointer; color:#242424; letter-spacing:3px; line-height:28px; text-align:center; font-size:14px;}	
+
+.contact .lxwo{
+	 width:425px; 
+	 margin:80px auto;
+}
+.contact .lxwo .left{ 
+	float:left; 
+	width:169px; 
+	height:169px;
+	background:url('image/11.png');
+	background-size:contain;
+}
+.contact .lxwo .right{ float:left; margin-left:80px;}
+.contact .lxwo .left{ width:169px; height:169px; margin:20px auto;}
+.contact .lxwo .right{ text-align:center; margin-top:20px;}
+.contact .lxwo .right span{ display:block; color:#7b0f02; font-size:16px; height:60px; letter-spacing:1px;}
+
+/*联系我 end*/
+
+/*尾部*/
+footer{ position:relative; background:#000; width:100%; height:320px;border-radius: 8px; bottom:0; z-index:1; overflow:hidden;margin-top:20px;background:#474747;}
+footer .logo{ display:block; margin-top:40px;}
+footer .logo img{ width:100px; height:100px; margin:0 auto; display:block; opacity:0.9;border-radius: 50%;}
+footer .nav{ width:445px; margin:45px auto;}
+footer .nav li{ width:70px; text-align: center; display:inline-block; font-size:14px;}
+
+footer .nav{ width:260px; margin:45px auto;}
+footer .nav li{ width:39px; text-align: center; display:inline-block; font-size:14px;}
+
+footer .nav li a{ color:#fff;-webkit-transition: all 0.2s ease-in;
+				-moz-transition: all 0.2s ease-in;
+				-ms-transition: all 0.2s ease-in;
+				-o-transition: all 0.2s ease-in;
+				transition: all 0.2s ease-in;} 
+footer .nav li a:hover{ color:#a82d1d;opacity:1; text-decoration:none;}
+footer .bottom{font-size:18px;font-weight:bold; height:80px; color:#a82d1d; letter-spacing:1px; text-align:center; line-height:80px; background:#26292E;}
+/*尾部*/
+
+/*首页*/	
+</style>
+<script src="move4.js"></script>
+<script src="common.js"></script>
+<script>
+	window.onload=function(){
+		
+		var oNum=document.getElementById('num');
+		var aItem=oNum.getElementsByTagName('li');
+		var oImg=document.getElementById('imgs');
+		var aImg=oImg.getElementsByTagName('img');	
+		var oPreloader=document.querySelector('.preloader');
+		//var aHead=document.querySelector('#head')
+		//var scrollT=document.documentElement.scrollTop||document.body.scrollTop;
+		//if(scrollT>){}
+		//加载
+		setTimeout(function(){
+			oPreloader.style.display='none';
+		},1000)
+		//加载结束
+		//幕布轮播
+		oImg.style.width=aImg[0].offsetWidth*aImg.length+'px';
+		for(var i=0;i<aItem.length;i++){
+			aItem[i].index=i;
+			aItem[i].onmouseover=function(){
+				for(var i=0;i<aItem.length;i++){
+					aItem[i].className='';
+				}
+				this.className='active';
+				move(oImg,{left:-this.index*aImg[0].offsetWidth})
+			};	
+		}
+		//幕布轮播结束
+		//向上拖拽
+			var oButton=document.querySelector('#button');
+			var oBox=document.querySelector('.box')
+			oButton.onclick=function(){
+				oBox.style.transform=`translateY(-662px)`
+			}
+		//向上拖拽开始
+		
+		//apple时钟
+		var canvas = document.getElementById('canvas');
+
+		var ctx = canvas.getContext('2d');
+		var d = 0;
+		var timer;
+
+		ctx.lineWidth = 8;
+		ctx.lineCap = 'round';
+
+		setInterval(function(){
+			ctx.clearRect(200,80,300,300)
+
+			// 设置文字样式
+			
+
+			ctx.lineWidth = 8;
+
+//			ctx.stroke();
+
+			var date = new Date();
+			var hour = date.getHours();
+			var minute = date.getMinutes();
+			var second = date.getSeconds();
+			var millisecond = date.getMilliseconds();
+
+			// 画秒针
+			ctx.beginPath();
+			ctx.strokeStyle = '#a82d1d';
+			ctx.arc(350,150,50,d2a(-90),d2a(((second+millisecond/1000)%60/60*360)-90),false);
+			ctx.stroke();
+
+			// 画分针
+			ctx.beginPath();
+			ctx.strokeStyle = 'green';
+			ctx.arc(350,150,35,d2a(-90),d2a(((minute+second/60)%60/60*360)-90),false);
+			ctx.stroke();
+
+			// 画时针
+			ctx.beginPath();
+			ctx.strokeStyle = '#c3f923';
+			ctx.arc(350,150,20,d2a(-90),d2a(((hour + minute/60)%12/12*360)-90),false);
+
+			
+
+			ctx.stroke();
+		},16)
+		//apple时钟end
+		
+		//ad手风琴
+		var oUl=document.getElementById('ul1');
+		 var aLi=oUl.children;
+		 var w=60;
+		 for(var i=1;i<aLi.length;i++){
+			  aLi[i].style.left=oUl.offsetWidth-w*(aLi.length-i)+'px';
+			 }
+	 for(var i=0;i<aLi.length;i++){	 
+	 		 aLi[i].index=i; 
+			 aLi[i].onmouseover=function(){
+				 for(var i=0;i<aLi.length;i++){
+				  if(i<=this.index){
+						//aLi[i].style.left=i*w+'px';
+						move(aLi[i],{left:i*w})
+					}
+					else{
+						//aLi[i].style.left=oUl.offsetWidth-(aLi.length-i)*w+'px';	
+						move(aLi[i],{left:oUl.offsetWidth-(aLi.length-i)*w,},{easing:'ease-in'})
+					}
+			  };
+		}
+	};	 
+		//ad手风琴 end
+		
+		//爆炸 
+		var oBbox = document.querySelector('#bBox');
+
+		var cols = 7;
+		var rows = 4;
+
+		var current = 0;
+		var clickabel = true;
+
+		for( var row = 0;row < rows;row++){
+			for( var col = 0; col < cols ;col++ ){
+				var oContainer = document.createElement('div');
+					oContainer.classList.add('container');
+
+				oContainer.dataset.col = col;
+				oContainer.dataset.row = row;
+
+				oBbox.appendChild(oContainer);
+			}
+		}
+
+		var aContainer = document.querySelectorAll('.container');
+
+		oBbox.onclick = function(){
+
+			if( !clickabel ) return; clickabel = false;
+
+			setTransition();
+			for (var i = aContainer.length - 1; i >= 0; i--) {
+				aContainer[i].style.opacity = '1';
+
+				var deltaX = aContainer[i].dataset.col - 3.5;
+				var deltaY = aContainer[i].dataset.row - 2;
+				
+				aContainer[i].style.transform = `perspective(800px) translateZ(800px) translateX(${deltaX*40}px) translateY(${deltaY*40}px) rotateX(${rnd(0,180)}deg) rotateY(${rnd(0,180)}deg)`
+				aContainer[i].style.opacity = '0';
+			}
+
+			setTimeout(function(){
+				current++;
+
+				for( var i = 0;i<aContainer.length;i++ ){
+					aContainer[i].style.transition = '';
+					aContainer[i].style.opacity = '1';
+
+					aContainer[i].style.transform = '';
+				}
+
+				setBackground();
+				clickabel = true;
+			},500)
+		}
+
+		function rnd(n,m){
+			return parseInt(Math.random()*(m-n)+n);
+		}
+
+		function setBackground(){
+			for( var i = 0;i<aContainer.length;i++ ){
+				aContainer[i].style.backgroundImage = `url(image/picshow${current%3}.png)`
+				aContainer[i].style.backgroundPosition = `${-aContainer[i].dataset.col*37}px ${-aContainer[i].dataset.row*48}px`
+
+				oBbox.style.backgroundImage = `url(image/picshow${current%3}.png)`
+			}
+		}
+
+		function setTransition(){
+			for( var i = 0;i<aContainer.length;i++ ){
+				
+				aContainer[i].style.transition = `0.3s ${rnd(0,200)}ms`
+			}
+		}
+
+		setBackground();
+		setTransition();
+		//爆炸 end
+		
+		//音乐盒
+		var musics =  [
+			'花房姑娘',
+			'喜剧之王',
+			'counting-starts',
+			'greenslave',
+			'young-for-you'
+		]
+
+		var mode = 'normal';
+		var currentIndex;
+
+		var aModeSwitch = document.querySelectorAll('.mode-switch')
+		var next = document.querySelector('#next');
+
+		for (var i = aModeSwitch.length - 1; i >= 0; i--) {
+			aModeSwitch[i].onclick = function(){
+				mode = this.dataset.mode
+			}
+		}
+
+	//	var amLi = document.getElementsByTagName('li');
+	  var amLi = document.querySelectorAll('.musicLi');
+		var oAudio = document.getElementsByTagName('audio')[0];
+
+		for (let i = amLi.length - 1; i >= 0; i--) {
+			amLi[i].onclick = function(){
+				currentIndex = i;
+				play();
+			}
+		}
+
+		next.onclick = function(){
+			if( mode == 'random' ){
+				currentIndex = rnd(0,musics.length,currentIndex)
+				play();
+
+				return;
+			}
+
+			if( currentIndex == musics.length-1 ){
+				currentIndex = -1
+			}
+
+			currentIndex++;
+
+			play();
+		}
+
+		oAudio.onended = function(){
+			if( mode == 'normal' ){
+
+				if( currentIndex == musics.length-1 ){
+					clear();
+					return;
+				}
+
+				currentIndex++;
+				play();
+
+			} else if( mode == 'repeat' ){
+				play();
+			} else if( mode == 'single' ){
+				clear();
+			} else if( mode == 'listRepeat' ){
+currentIndex = ++currentIndex%(musics.length)
+				play();
+			} else if( mode == 'random' ){
+				currentIndex = rnd(0,musics.length,currentIndex)
+				play();
+			}
+		}
+
+		function play(){
+			oAudio.src = `statics/music/${musics[currentIndex]}.mp3`;
+			oAudio.play();
+
+			clear();
+			amLi[currentIndex].classList.add('active');
+		}
+
+		function clear(){
+			for (var i = amLi.length - 1; i >= 0; i--) {
+				amLi[i].classList.remove('active');
+			}
+		}
+
+		function rnd(n,m,except){
+			var rd = parseInt(Math.random()*(m-n)+n)
+			return (rd == except)?rnd(n,m,except):rd
+		}
+		//音乐盒
+	};
+</script>
+</head>
+
+<body>
+<!--动画-->
+<div class="preloader" id="preloader">
+    <div class="item">
+      <img src="image/loading.gif">
+    </div>
+</div>
+<!--动画结束-->
+<!-巨幅-!>
+	<div class="box">
+	  <div class="imgBox" id="imgs"> 
+	      <a href="javascript:;"><img src="image/me0.jpg" alt="" class="active"></a> 
+	      <a href="javascript:;"><img src="image/me1.jpg" alt=""></a> 
+	  </div>
+	  <ul class="num" id="num">
+	     <li class="active"></li>
+	     <li></li>
+	  </ul>
+	  <span id="button">up</span>
+	</div>
+<!-巨幅结束-!>	
+
+<!-首页-!>	
+    <div class="wrap">
+        <div class="head" id="head">
+           <h1 id="h1">
+               T.F.H.
+           </h1>
+			<canvas id="canvas" width="700" height="300"></canvas>
+            <!-导航-!>
+            <div class="banner">
+                <ul class="clearfix">
+                    <li class="active"><a href="my resume2.html">简历</a></li>
+                    <li><a href="contact.html">博客</a></li>
+                    <li><a href="contact.html">关于</a></li>
+                    <li><a href="contact.html">作品</a></li>
+                    <li><a href="contact.html">联系</a></li>
+                </ul>
+            </div>
+            <!-导航 end-!>
+            <!-登录-!>
+                 <div class="login_bar clearfix">
+                     <div>
+                         <a href="javascript:;" class="t">
+                         </a>
+                     </div>
+                     <div>
+                         <a href="javascript:;" class="f">
+                         </a>
+                     </div>
+                     <div>
+                         <a href="javascript:;" class="p">
+                         </a>
+                     </div>
+                     <div>
+                         <a href="javascript:;" class="in">
+                         </a>
+                     </div>
+                 </div>
+            <!-登录 end-!>
+            <!-搜索-!>
+                <!--<div class="search_box">
+                    <span><img src="search.png" alt=""/> </span>
+                    <input type="text" value="" placeholder=" what do you mean!?"/>
+                </div>-->
+            <!-搜索 end-!>
+            <!--<a href="javascript:;" class="silk">
+                <img src="silk.png" alt=""/>
+            </a>-->
+        </div>
+
+        <!-中间-!>
+        <div class="middle clearfix">
+            <ul id="ul1">
+	        	<li><img src="image/ads1.png" alt=""></li>
+	            <li><img src="image/ads2.png" alt=""></li>
+	            <li><img src="image/ads3.png" alt=""></li>
+	            <li><img src="image/ads4.png" alt=""></li>
+	            <li><img src="image/ads5.png" alt=""></li>
+	            <li><img src="image/ads6.png" alt=""></li>
+        	</ul>
+            <ul class="right_ad clearfix">
+            	<div id="bBox"></div>
+            </ul>
+        </div>
+        <!--音乐盒-->
+           <div class="musicBox">
+				<div class="musicHead">Music Stop</div>
+				<ul>
+					<li class="musicLi"><a href="javascript:void(0);">喜剧之王</a></li>
+					<li class="musicLi"><a href="javascript:void(0);">counting-starts</a></li>
+					<li class="musicLi"><a href="javascript:void(0);">greenslave</a></li>
+					<li class="musicLi"><a href="javascript:void(0);">young-for-you</a></li>
+				</ul>
+				<ul class="bUl">
+					<button class="mode-switch" data-mode="normal">顺序</button>
+					<button class="mode-switch" data-mode="repeat">单曲</button>
+					<button class="mode-switch" data-mode="random">随机</button>
+					<button class="mode-switch" data-mode="listRepeat">列表</button>
+					<button class="mode-switch" data-mode="single">单曲</button>
+					<button id="next">|| ></button>
+				</ul>	
+				<audio src="" controls></audio>
+			</div>
+			<!--音乐盒 结束-->
+        <!--<span class="runner">
+				<img src="image/runner.gif">
+    	</span>-->
+    	
+        
+		<div class="myresume">
+		<a href="my resume2.html" target="_blank" class="resume">"我的简历</a>
+    </div>
+		<!--技能-->
+    	<ul class="skill">
+	       <li>
+	          <div class="con">
+	              <div class="box">
+	                 <div class="yuan"><a class="aa">Ps</a><a class="bb">75%</a></div>
+	              </div>
+	          </div>
+	          <span>Photoshop</span>
+	       </li>
+	       <li>
+	          <div class="con">
+	              <div class="box">
+	                 <div class="yuan"><a class="aa aico">H+C</a><a class="bb">85%</a></div>
+	              </div>
+	          </div>
+	          <span>Html5+css3</span>
+	       </li>
+	       <li>
+	          <div class="con">
+	              <div class="box">
+	                 <div class="yuan"><a class="aa">Js</a><a class="bb">75%</a></div>
+	              </div>
+	          </div>
+	          <span>Javascript</span>
+	       </li>
+	       <li>
+	          <div class="con">
+	              <div class="box">
+	                 <div class="yuan"><a class="aa aico">Ag</a><a class="bb">75%</a></div>
+	              </div>
+	          </div>
+	          <span>Agular</span>
+	       </li>
+	       <li>
+	          <div class="con">
+	              <div class="box">
+	                 <div class="yuan"><a class="aa aico">Aj</a><a class="bb">75%</a></div>
+	              </div>
+	          </div>
+	          <span>Ajax</span>
+	       </li>
+    </ul>
+    <!--技能-->
+    
+
+    <!-联系-!>
+        <div class="contact" id="contact">
+		    <h2>CONTACT</h2>
+		    <h3>联系我.吧</h3>
+		    <span class="line"></span>
+		    <p class="txt">XXX  XX<br>XXXX,XXXX</p>
+		      <div class="lxwo">
+		       <div class="left"></div>
+		       <div class="right">
+		          <span class="name">汤峰华：<br>13625222132</span>
+		          <span class="mail">E-mail：<br>55187735@qq.com</span>
+		          <span class="mail">QQ/微信：<br>55187735</span>
+		       </div>
+		      </div>
+		</div>
+		<!-联系 end-!>
+
+        <!-中间 end-!>
+        <footer>
+		   <a href="/" class="logo"><img src="image/user.jpg"></a>
+		   <ul class="nav">
+		     <li><a href="/">首页</a></li>
+		     <li><a href="resume.html" target="_blank">简历</a></li>
+		     <li><a href="../blog" target="_blank">博客</a></li>
+		     <li><a href="#about">关于</a></li>
+		     <li><a href="#works">案例</a></li>
+		     <li><a href="#contact">联系</a></li>
+		   </ul>
+		   <div class="bottom">THANKS</div>
+		</footer>
+    </div>
+<!-首页结束-!>	    
+</body>
+</html>
